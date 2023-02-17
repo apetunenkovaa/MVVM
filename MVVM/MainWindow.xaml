@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+       Title="MVVM" Height="250" Width="350">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Text="Выберите арифметическую операцию"/>
+         <ComboBox Name="cbSelectOperation" ItemsSource="{Binding ChangeCombobox}" SelectedIndex="{Binding SelectedIndex}"/>
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Name ="tbFirstOperand" Text="{Binding FirstOperand}"/>
+            <TextBlock Text="{Binding CBIndex}" Name="tbOperation" HorizontalAlignment="Center" Grid.Column="1"/>
+            <TextBox Grid.Column="2"  Name ="tbSecondOperand" Text="{Binding SecondOperand}" />
+        </Grid>
+        <Button Command="{Binding Command}" Content="Вычислить"/>
+        <GroupBox Header="Результат:">
+            <TextBlock Name ="Result" Text ="{Binding ChangeResult}" IsEnabled="False" />
+        </GroupBox>
+        </StackPanel>
     </Grid>
 </Window>
+

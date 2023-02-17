@@ -20,9 +20,12 @@ namespace MVVM
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModels VM = new ViewModels();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = VM;
+            CommandBindings.Add(VM.bind);
         }
     }
 }
